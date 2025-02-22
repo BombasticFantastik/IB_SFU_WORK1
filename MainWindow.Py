@@ -14,10 +14,10 @@ class MainWindow(QMainWindow):
         self.input1=QLineEdit()
         self.button0=QPushButton("Закодировать слово")
         self.button0.clicked.connect(self.the_button_was_clicked)
-        self.label2=QLabel("Результат:")
-        self.label3=QLabel("ваше_слово")
+        
+        self.label3=QLabel("ваш_результат")
 
-        self.checkbox=QCheckBox()
+        self.checkbox=QCheckBox("Обратная кодировка")
         
 
         layout=QVBoxLayout()
@@ -27,9 +27,12 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.label1)
         layout.addWidget(self.input1)
         
-        layout.addWidget(self.label2)
+        
         layout.addWidget(self.button0)
+        
         layout.addWidget(self.label3)
+
+        self.setFixedSize(QSize(300, 300))
         
         
 
@@ -39,17 +42,11 @@ class MainWindow(QMainWindow):
     
         #меняем название
     def the_button_was_clicked(self):
-
-
-        
-
         if self.checkbox.isChecked():
             code_word=self.input0.text()
             word=self.input1.text()
             new_word=BackTricemusСode(code_word,word)
             self.label3.setText(new_word)
-            
-            
         else:
             code_word=self.input0.text()
             word=self.input1.text()
